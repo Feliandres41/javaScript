@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>javascript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--Datos ingresados con input-->
+    <div id="ejercicios">
+        <div id="actividadUno">
+            <div class="titulo"><h1>Ejercicio #1</h1></div>
+            <p>Realice un programa que sirva para determinar cuál es el cuadrado, de un determinado número.</p>
+            <input type="number" id="numero" placeholder="Ingrese un número">
+            <button id="ejer1">enviar</button>
+        </div>
+        <div id="actividadDos">
+            <div class="titulo"><h1>Ejercicio #2</h1></div>
+            <p>Realice un programa que sirva para obtener el promedio simple de un estudiante a partir del ingreso de las tres notas obtenidas durante el primer periodo académico.</p>
+            <div class="notas">
+                <input type="number" id="nota1" placeholder="Ingrese la nota #1">
+                <input type="number" id="nota2" placeholder="Ingrese la nota #2">
+                <input type="number" id="nota3" placeholder="Ingrese la nota #3">
+            </div>
+            <button id="ejer2">enviar</button>
+        </div>
+        <div id="actividadTres">
+            <div class="titulo"><h1>Ejercicio #3</h1></div>
+            <p>Realice un programa que solicite la edad de dos hermanos y muestre un mensaje indicando la edad del mayor y cuantos años de diferencia tiene con el menor.</p>
+            <div class="hermanos">
+                <input type="number" id="hermano1" placeholder="Edad del hermano #1">
+                <input type="number" id="hermano2" placeholder="Edad del hermano #2">
+            </div>
+            <button id="ejer3">enviar</button>
+        </div>
+        <div id="actividadCuatro">
+            <div class="titulo"><h1>Ejercicio #4</h1></div>
+            <p>Realice un programa que permita calcular el área de un triángulo aplicando la siguiente formula: A = (B x H) /2.</p>
+            <div class="triangulo">
+                <input type="number" id="base" placeholder="Ingrese la base">
+                <input type="number" id="altura" placeholder="Ingrese la altura">
+            </div>
+            <button id="ejer4">enviar</button>
+        </div>
+        <div id="actividadCinco">
+            <div class="titulo"><h1>Ejercicio #5</h1></div>
+            <p>Construya un pseudocódigo que, dado el nombre de una persona, su peso y su altura, expresados estos dos últimos en libras y pies, respectivamente; escriba el nombre de la persona, su peso expresado en kilogramos y su altura expresada en metros.</p>
+            <div class="conversion">
+                <input type="text" id="nombre" placeholder="Ingrese el nombre">
+                <input type="number" id="peso" placeholder="Ingrese el peso en libras">
+                <input type="number" id="alto" placeholder="Ingrese la altura en pies">
+            </div>
+            <button id="ejer5">enviar</button>
+        </div>
+    </div>
+
+
+    <script>
+        let ejer1 = document.getElementById("ejer1");
+        let ejer2 = document.getElementById("ejer2");
+        let ejer3 = document.getElementById("ejer3");
+        let ejer4 = document.getElementById("ejer4");
+        let ejer5 = document.getElementById("ejer5");
+
+        ejer1.addEventListener("click", function() {
+            let numero = document.getElementById("numero").value;
+            alert(numero*numero);
+        });
+        ejer2.addEventListener("click", function() {
+            let nota1 = parseFloat(document.getElementById("nota1").value);
+            let nota2 = parseFloat(document.getElementById("nota2").value);
+            let nota3 = parseFloat(document.getElementById("nota3").value);
+            let promedio = (nota1 + nota2 + nota3) / 3;
+            alert(promedio);
+        });
+        ejer3.addEventListener("click", function() {
+            let hermano1 = parseInt(document.getElementById("hermano1").value);
+            let hermano2 = parseInt(document.getElementById("hermano2").value);
+            let mayor, menor;
+            if (hermano1 > hermano2) {
+                alert("El hermano #1 es el mayor con " + hermano1 + " años, y la diferencia es de " + (hermano1 - hermano2) + " años.");
+            } else if (hermano2 > hermano1) {
+                alert("El hermano #2 es el mayor con " + hermano2 + " años, y la diferencia es de " + (hermano2 - hermano1) + " años.");
+            }else{
+                alert("Ambos hermanos tienen la misma edad de " + hermano1 + " años.");
+            }
+        });
+        ejer4.addEventListener("click", function() {
+            let base = parseFloat(document.getElementById("base").value);
+            let altura = parseFloat(document.getElementById("altura").value);
+            let area = (base * altura) / 2;
+            alert("El área del triángulo es: " + area);
+        });
+        ejer5.addEventListener("click", function() {
+            let nombre = document.getElementById("nombre").value;
+            let pesoLibras = parseFloat(document.getElementById("peso").value);
+            let alturaPies = parseFloat(document.getElementById("alto").value);
+            let pesoKg = pesoLibras * 0.453592;
+            let alturaMetros = alturaPies * 0.3048;
+            alert("Nombre: " + nombre + "\nPeso en kg: " + pesoKg.toFixed(2) + "\nAltura en metros: " + alturaMetros.toFixed(2));
+        });
+    </script>
+</body>
+</html>
